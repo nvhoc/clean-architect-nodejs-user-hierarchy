@@ -1,17 +1,39 @@
 # user-hierarchy
 
-The problem is so interesting that I want to move build a service in real life.
+The problem is so interesting that I want to build a service in real life.
 
 ## How to run
 
 ### Prerequisites
 
 - docker
+- node v10.16.3
+- yarn v1.19.1
 
 ### Installation
 
+#### DockerCompose Up
+
 * docker
 - docker-compose up
+
+#### API
+
+Please check document in https://documenter.getpostman.com/view/9117914/SW15xwEK?version=latest
+
+You can create a new user or new role then do request get-sub-ordinates
+
+### Run Test
+
+#### Yarn
+
+- yarn
+- yarn test
+
+#### Change Test Case
+
+You can change init data in init file
+src/core/usecases/users/test/init.js
 
 ## My solution
 
@@ -28,6 +50,22 @@ In the project, I will init with clean architect. Please find its reference at h
 ## My scirpt
 
 ### in the first step
+
+My project structure includes 4 main paths: config, core, provider, const.
+
+- config: keep all configuration for our project.
+- core: keep requirement from business and writing without framework
+- provider: provide technical solution for business
+- const: include every enum helpful to make more clear
+
+I translate the requirement to 2 entities and use cases around 2 entities.
+![alt entities](/document/image/entities.jpg)
+![alt usecases](/document/image/usecases.jpg)
+
+Our main use cases is get-sub-ordinates
+![alt get-sub-ordinates](/document/image/getSubOrdinate.jpg)
+
+The key of our pefomance is findSubOrdinates function of RoleModel.
 
 ```js
   async findSubOrdinatesV1(roleId) {
@@ -77,3 +115,7 @@ The first solution is using recursion and doing many request, that can hit our s
     return (roleTree[roleId] && roleTree[roleId].children) || []
   }
 ```
+
+The perfomance of the function in the worst case is O(n2), but n is not too big. It is hard to have a company with n > 100.
+
+Anyway, We can improve it performance when needed by global caching or store data in roleTree data structure. But, it will be over enginering if our roles not big enough. Because we must make sure our data consistency by create/update one.

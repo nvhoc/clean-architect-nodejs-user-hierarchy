@@ -11,7 +11,7 @@ export default class RolesSetList {
   }
 
   async exec() {
-    const user = await this._model.insertMany(this._list)
-    return user
+    const roles = await this._model.insertMany(this._list)
+    return roles
   }
 }

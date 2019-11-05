@@ -13,9 +13,9 @@ services:
     command: "dockerize -wait tcp://mongo:27017 yarn start"
 
   mongo:
-    image: mongo
+    image: mongo:3.6
     ports:
-      - "27017:27017"
+      - "27017"
     volumes:
       - data:/data/db
 

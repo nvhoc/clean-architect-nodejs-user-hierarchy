@@ -15,9 +15,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/roles', roles.get)
+router.post('/roles', roles.create)
 router.post('/roles/set-list', roles.setList)
 
 router.get('/users', users.get)
+router.post('/users', users.create)
 router.post('/users/set-list', users.setList)
 router.get('/users/:id/get-sub-ordinates', users.getSubOrdinates)
 

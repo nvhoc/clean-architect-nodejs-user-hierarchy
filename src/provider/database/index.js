@@ -7,13 +7,16 @@ let ins = null
 
 class DatabaseConnection {
   constructor() {
-    const conn = mongoose.createConnection(config.get('mongo.uri', ''), {
-      socketTimeoutMS: 30000,
-      keepAlive: true,
-      reconnectTries: 30000,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    const conn = mongoose.createConnection(
+      config.get('mongo.uri', process.env.MONGO_URL),
+      {
+        socketTimeoutMS: 30000,
+        keepAlive: true,
+        reconnectTries: 30000,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+    )
     conn.catch(err => {
       logger.error('db error ', err)
     })

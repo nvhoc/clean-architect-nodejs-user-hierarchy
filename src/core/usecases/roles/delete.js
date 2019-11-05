@@ -11,7 +11,7 @@ export default class RolesGet {
   }
 
   async exec() {
-    const user = await this._model.remove(this._query)
-    return user
+    const roles = await this._model.remove(this._query)
+    return roles
   }
 }

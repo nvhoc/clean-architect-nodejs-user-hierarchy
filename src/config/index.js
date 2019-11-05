@@ -6,9 +6,11 @@ import logger from '$logger'
 let config = {}
 try {
   const NODE_ENV = process.env.NODE_ENV || 'development'
-  config = yaml.safeLoad(
-    fs.readFileSync(`${__dirname}/${NODE_ENV}.yaml`, 'utf8'),
-  )
+  let yamlFile = fs.readFileSync(`${__dirname}/${NODE_ENV}.yaml`, 'utf8')
+  yamlFile = yamlFile.replace(/\$\{(.*)\}/g, (x, x1) => {
+    return process.env[x1]
+  })
+  config = yaml.safeLoad(yamlFile) || {}
   logger.info('config init:', config)
 } catch (e) {
   logger.error(e)

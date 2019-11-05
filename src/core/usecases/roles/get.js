@@ -10,7 +10,7 @@ export default class RolesGet {
   }
 
   async exec() {
-    const user = await this._model.find({})
-    return user
+    const roles = await this._model.find({})
+    return roles
   }
 }
