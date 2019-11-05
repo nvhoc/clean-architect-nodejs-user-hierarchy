@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "$config": "./src/config",
+        "$usecases": "./src/core/usecases",
+        "$entities": "./src/core/entities",
+        "$utils": "./src/utils",
+        "$provider": "./src/provider",
+        "$logger": "./src/provider/api/logger",
+        "$const": "./src/const"
+      }
+    }],
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    ["@babel/plugin-transform-async-to-generator", {
+      "module": "bluebird",
+      "method": "coroutine"
+    }]
+  ]
+}

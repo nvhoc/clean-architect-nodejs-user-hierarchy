@@ -1,0 +1,65 @@
+{
+  "name": "user-hierarchy",
+  "version": "1.0.0",
+  "description": "In the project, I will init with clean architect. Please find its reference at https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix .",
+    "build": "babel src -d dist --source-maps",
+    "serve": "node dist/index.js",
+    "start": "NODE_ENV=docker nodemon --exec babel-node src",
+    "local": "NODE_ENV=local nodemon --exec babel-node src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvhoc/user-hierarchy.git"
+  },
+  "author": "Hoc Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nvhoc/user-hierarchy/issues"
+  },
+  "homepage": "https://github.com/nvhoc/user-hierarchy#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.6.3",
+    "bluebird": "^3.7.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.4",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.2",
+    "nodemon": "^1.19.3",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

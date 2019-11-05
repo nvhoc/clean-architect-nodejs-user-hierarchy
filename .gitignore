@@ -1,0 +1,5 @@
+node_modules/
+# Vscode
+.vscode
+# built code
+dist/
