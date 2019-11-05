@@ -30,7 +30,7 @@ class BaseModel {
   }
 
   remove(...args) {
-    return this._model.remove(...args)
+    return this._model.deleteMany(...args)
   }
 
   insertMany(...args) {

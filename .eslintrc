@@ -1,14 +1,16 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base",
         "plugin:prettier/recommended"
     ],
     "plugins": [
-        "prettier"
+        "prettier",
+        "jest"
     ],
     "globals": {
         "Atomics": "readonly",
