@@ -43,11 +43,11 @@ In the project, I will init with clean architect. Please find its reference at h
 
 ### Why have I used clean architect
 
-1. Clean architect help me focusing on delivering business use cases firstly and implement technical later. Our use cases will not depends on any libaries and frameworks. It will be used only pure Progamming Language ( I am choosing Javascript ) and open interface for our Technical Provider can provide.
+1. Clean architect helps me focusing on delivering business use cases firstly and implement technical later. Our use cases will not depend on any libraries and frameworks. It is used only pure Programming Language ( I am choosing Javascript ), and an open interface for our Technical Provider can provide.
 
-2. Simple way to write testing, we can do Acceptable Test by write testing for use cases to make sure our application works well. Moreover, We do Unit Test in our provider function without depend on other tiers.
+2. A simple way to write testing, we can do  Acceptable Tests by write testing for use cases to make sure our application works well. Moreover, We do Unit Tests in our provider function without depending on other tiers.
 
-3. Our app can be improved performance in future. Because we implement technical provider laterly so that mean we can improve a technical provider by moving to a microservice or refactor our code perfomance without affect to our business use cases
+3. Our app can be improved performance in the future. Because we implement technical provider lately so that means we can improve a technical provider by moving to a microservice or refactor our code performance without effect to our business use cases
 
 ## My scirpt
 
@@ -66,6 +66,7 @@ I translate the requirement to 2 entities and use cases around 2 entities.
 <img src="/document/image/usecases.png?raw=true" width="200">
 
 Our main use cases is get-sub-ordinates
+
 <img src="/document/image/getSubOrdinates.png?raw=true" with="600">
 
 The key of our pefomance is findSubOrdinates function of RoleModel.
@@ -92,9 +93,9 @@ The key of our pefomance is findSubOrdinates function of RoleModel.
 
 ### improve performance
 
-This is one of pros of clean architect. We only take care about technical aspect in improvement. Here, we improve findSubOrdinates function only.
+This is one of the pros of Clean Architect. We only take care of the technical aspect of improvement. Here, we improve findSubOrdinates function only.
 
-The first solution is using recursion and doing many request, that can hit our stack overload and high request to our database. My solution to get all Roles from db and storage as a tree. Let check the code
+The first solution is using recursion and making many requests, that can hit our stack overload and high request to our database. My solution to get all Roles from DB and storage as a tree. Let check the code
 
 ```js
   async findSubOrdinatesV2(roleId) {
@@ -119,6 +120,6 @@ The first solution is using recursion and doing many request, that can hit our s
   }
 ```
 
-The perfomance of the function in the worst case is O(n2), but n is not too big. It is hard to have a company with n > 100.
+The performance of the function in the worst case is O(n*log(n)), and n is not too big. It is hard to have a company with n > 100, so the function is quite fast.
 
-Anyway, We can improve it performance when needed by global caching or store data in roleTree data structure. But, it will be over enginering if our roles not big enough. Because we must make sure our data consistency by create/update one.
+Besides, we can improve its performance when needed by global caching or store data in roleTree data structure. But, it is over-engineering if our roles not big enough because we must make sure our data consistency by creating/updating a role.
