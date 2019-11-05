@@ -14,8 +14,9 @@ The problem is so interesting that I want to build a service in real life.
 
 #### DockerCompose Up
 
-* docker
-- docker-compose up
+```shell
+docker-compose up
+```
 
 #### API
 
@@ -27,13 +28,15 @@ You can create a new user or new role then do request get-sub-ordinates
 
 #### Yarn
 
-- yarn
-- yarn test
+```shell
+yarn
+yarn test
+```
 
 #### Change Test Case
 
 You can change init data in init file
-src/core/usecases/users/test/init.js
+[init file](/src/core/usecases/users/test/init.js)
 
 ## My solution
 
@@ -59,11 +62,11 @@ My project structure includes 4 main paths: config, core, provider, const.
 - const: include every enum helpful to make more clear
 
 I translate the requirement to 2 entities and use cases around 2 entities.
-![alt entities](/document/image/entities.jpg)
-![alt usecases](/document/image/usecases.jpg)
+![alt entities](/document/image/entities.png?raw=true)
+![alt usecases](/document/image/usecases.png?raw=true)
 
 Our main use cases is get-sub-ordinates
-![alt get-sub-ordinates](/document/image/getSubOrdinate.jpg)
+![alt get-sub-ordinates](/document/image/getSubOrdinates.png?raw=true)
 
 The key of our pefomance is findSubOrdinates function of RoleModel.
 
