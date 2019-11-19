@@ -13,8 +13,9 @@ beforeAll(() => {
   return Promise.all([initializeUsers(), initializeRoles()])
 })
 
-afterAll(() => {
-  return Promise.all([clearUsers(), clearRoles()])
+afterAll(async () => {
+  await Promise.all([clearUsers(), clearRoles()])
+  DatabaseConnection.of().close()
 })
 
 test('getSubOrdinates user has role 3 (Supervisor) ', async () => {

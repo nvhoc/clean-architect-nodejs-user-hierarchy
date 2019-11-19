@@ -30,7 +30,7 @@ class DatabaseConnection {
       logger.info('db was connected')
     })
     conn.on('disconnected', () => {
-      logger.error('db was disconnected')
+      logger.info('db was disconnected')
     })
     this._conn = conn
   }
@@ -43,6 +43,10 @@ class DatabaseConnection {
 
   getModel(name) {
     return Models[name].of(this._conn)
+  }
+
+  close() {
+    this._conn.close()
   }
 }
 

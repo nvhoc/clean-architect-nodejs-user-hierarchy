@@ -9,7 +9,7 @@
     "serve": "node dist/index.js",
     "start": "NODE_ENV=docker nodemon --exec babel-node src",
     "local": "NODE_ENV=local nodemon --exec babel-node src",
-    "test": "jest --verbose --detectOpenHandles"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
