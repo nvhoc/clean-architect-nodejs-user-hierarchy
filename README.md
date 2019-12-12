@@ -1,6 +1,6 @@
 # user-hierarchy
 
-The problem is so interesting that I want to build a service in real life.
+The problem is about how to know subordinates of a user, it is so interesting that I want to build a service in real life.
 
 ## How to run
 
@@ -22,7 +22,7 @@ docker-compose up
 
 Please check document in https://documenter.getpostman.com/view/9117914/SW15xwEK?version=latest
 
-You can create a new user or new role then do request get-sub-ordinates
+You can create a new user or new role then do request get-subordinates
 
 ### Run Test
 
@@ -65,7 +65,7 @@ I translate the requirement to 2 entities and use cases around 2 entities.
 <img src="/document/image/entities.png?raw=true">
 <img src="/document/image/usecases.png?raw=true" width="200">
 
-Our main use cases is get-sub-ordinates
+Our main use cases is get-subordinates
 
 <img src="/document/image/getSubOrdinates.png?raw=true" with="600">
 
